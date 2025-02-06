@@ -26,25 +26,25 @@ const server = http.createServer((req, res) => {
     res.write("<h1>hello world!</h1>");
     res.end();
   } else if (req.url === "/welcome") {
-    res.writeHead(302, { "Content-Type": "text/html" });
+    res.writeHead(200, { "Content-Type": "text/html" });
     res.write("<p>This is the welcome page. Hi!</p>");
     res.end();
   } else if (req.url === "/redirect") {
     res.writeHead(302, { Location: "./redirected" });
     res.end();
   } else if (req.url === "/redirected") {
-    res.writeHead(302, { "Content-Type": "text/html" });
+    res.writeHead(200, { "Content-Type": "text/html" });
     res.write("<p>This is the /redirected page</p>");
     res.end();
   } else if (req.url === "/cache") {
-    res.writeHead(302, {
+    res.writeHead(200, {
       "Content-Type": "text/plain",
       "Cache-Control": "max-age=86400",
     });
     res.write("this resource was cached");
     res.end();
   } else if (req.url === "/cookie") {
-    res.writeHead(302, {
+    res.writeHead(200, {
       "Content-Type": "text/plain",
       "Set-Cookie": "hello=world;",
     });
